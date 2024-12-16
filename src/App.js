@@ -21,7 +21,7 @@ function App() {
       })
       .catch((error) => {
         console.error("Error fetching data: ", error);
-        alert('failed to fetch data'); // Display an alert message on failure
+        alert('failed to fetch data');
       });
   }, []);
 
@@ -53,8 +53,8 @@ function App() {
       >
         <thead
           style={{
-            backgroundColor: "#4CAF50", // Green color
-            color: "white", // White text
+            backgroundColor: "#4CAF50",
+            color: "white",
           }}
         >
           <tr>
@@ -106,23 +106,21 @@ function App() {
               color: "white",
               border: "none",
               cursor: "pointer",
+              height:"40px"
             }}
           >
             Previous
           </button>
         </div>
         
-        <div>
-          <span
-            style={{
+        <div style={{
               padding: "10px",
               backgroundColor: "#4CAF50",
               borderRadius: "5px",
               color: "white",
-            }}
-          >
+              
+        }}>
             {currentPage}
-          </span>
         </div>
         <div>
           <button
@@ -133,6 +131,7 @@ function App() {
               color: "white",
               border: "none",
               cursor: "pointer",
+              height:"40px" 
             }}
           >
             Next
