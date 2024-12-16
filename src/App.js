@@ -105,7 +105,7 @@ function App() {
             backgroundColor: "#4CAF50",
             color: "white",
             border: "none",
-            cursor: currentPage === 1 ? "not-allowed" : "pointer",
+            cursor: "pointer",
           }}
         >
           Previous
@@ -128,7 +128,7 @@ function App() {
             backgroundColor: "#4CAF50",
             color: "white",
             border: "none",
-            cursor: currentPage === totalPages ? "not-allowed" : "pointer",
+            cursor: "pointer",
           }}
         >
           Next
