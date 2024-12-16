@@ -97,40 +97,47 @@ function App() {
           marginBottom: "20px",
         }}
       >
-        <button
-          onClick={() => handlePageChange("prev")}
-          style={{
-            padding: "10px",
-            backgroundColor: "#4CAF50",
-            color: "white",
-            border: "none",
-            cursor: "pointer",
-          }}
-        >
-          Previous
-        </button>
-        <span
-          style={{
-            padding: "10px",
-            backgroundColor: "#4CAF50",
-            borderRadius: "5px",
-            color: "white",
-          }}
-        >
-          {currentPage}
-        </span>
-        <button
-          onClick={() => handlePageChange("next")}
-          style={{
-            padding: "10px",
-            backgroundColor: "#4CAF50",
-            color: "white",
-            border: "none",
-            cursor: "pointer",
-          }}
-        >
-          Next
-        </button>
+        <div>
+          <button
+            onClick={() => handlePageChange("prev")}
+            style={{
+              padding: "10px",
+              backgroundColor: "#4CAF50",
+              color: "white",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            Previous
+          </button>
+        </div>
+        
+        <div>
+          <span
+            style={{
+              padding: "10px",
+              backgroundColor: "#4CAF50",
+              borderRadius: "5px",
+              color: "white",
+            }}
+          >
+            {currentPage}
+          </span>
+        </div>
+        <div>
+          <button
+            onClick={() => handlePageChange("next")}
+            style={{
+              padding: "10px",
+              backgroundColor: "#4CAF50",
+              color: "white",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );
