@@ -99,7 +99,6 @@ function App() {
       >
         <button
           onClick={() => handlePageChange("prev")}
-          disabled={currentPage === 1}
           style={{
             padding: "10px",
             backgroundColor: "#4CAF50",
@@ -122,7 +121,6 @@ function App() {
         </span>
         <button
           onClick={() => handlePageChange("next")}
-          disabled={currentPage === totalPages}
           style={{
             padding: "10px",
             backgroundColor: "#4CAF50",
