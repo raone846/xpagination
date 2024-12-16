@@ -21,7 +21,7 @@ function App() {
       })
       .catch((error) => {
         console.error("Error fetching data: ", error);
-        alert('failed to fetch data'); // Display an alert message on failure
+        alert('Failed to fetch data'); // Display an alert message on failure
       });
   }, []);
 
