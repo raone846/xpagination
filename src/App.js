@@ -10,11 +10,19 @@ function App() {
 
   useEffect(() => {
     fetch(API)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then((jsonData) => {
         setData(jsonData);
       })
-      .catch((error) => console.error("Error fetching data: ", error));
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+        alert('Failed to fetch data'); // Display an alert message on failure
+      });
   }, []);
 
   const totalPages = Math.ceil(data.length / rowsPerPage);
@@ -40,7 +48,7 @@ function App() {
           margin: "20px auto",
           borderCollapse: "collapse",
           borderBottom: "2px solid #4CAF50",
-          padding:"10px",
+          padding: "10px",
         }}
       >
         <thead
@@ -81,7 +89,14 @@ function App() {
         </tbody>
       </table>
       {/* Pagination Controls */}
-      <div style={{ display: "flex", justifyContent: "center", gap: "10px", marginBottom: "20px" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "10px",
+          marginBottom: "20px",
+        }}
+      >
         <button
           onClick={() => handlePageChange("prev")}
           disabled={currentPage === 1}
@@ -95,7 +110,14 @@ function App() {
         >
           Previous
         </button>
-        <span style={{ padding: "10px", backgroundColor: "#4CAF50", borderRadius: "5px", color:"white" }}>
+        <span
+          style={{
+            padding: "10px",
+            backgroundColor: "#4CAF50",
+            borderRadius: "5px",
+            color: "white",
+          }}
+        >
           {currentPage}
         </span>
         <button
