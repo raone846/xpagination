@@ -9,20 +9,21 @@ function App() {
   const rowsPerPage = 10;
 
   useEffect(() => {
-    fetch(API)
-      .then((response) => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(API);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        return response.json();
-      })
-      .then((jsonData) => {
+        const jsonData = await response.json();
         setData(jsonData);
-      })
-      .catch((error) => {
-        console.error("Error fetching data: ", error);
-        alert('failed to fetch data');
-      });
+      } catch (error) {
+        console.error("Failed to fetch data", error);
+        window.alert('failed to fetch data'); // Ensure the alert is triggered
+      }
+    };
+
+    fetchData();
   }, []);
 
   const totalPages = Math.ceil(data.length / rowsPerPage);
@@ -70,7 +71,7 @@ function App() {
               <tr
                 key={item.id}
                 style={{
-                  borderBottom: "1px solid black", // Bolder bottom border
+                  borderBottom: "1px solid black",
                 }}
               >
                 <td>{item.id}</td>
@@ -106,22 +107,25 @@ function App() {
               color: "white",
               border: "none",
               cursor: "pointer",
-              height:"40px"
+              height: "40px",
             }}
           >
             Previous
           </button>
         </div>
-        
-        <div style={{
-              padding: "10px",
-              backgroundColor: "#4CAF50",
-              borderRadius: "5px",
-              color: "white",
-              
-        }}>
-            {currentPage}
+
+        <div
+          style={{
+            padding: "10px",
+            backgroundColor: "#4CAF50",
+            borderRadius: "5px",
+            color: "white",
+          }}
+          aria-label={`Page ${currentPage}`} // Add an accessible label for tests
+        >
+          {currentPage}
         </div>
+
         <div>
           <button
             onClick={() => handlePageChange("next")}
@@ -131,7 +135,7 @@ function App() {
               color: "white",
               border: "none",
               cursor: "pointer",
-              height:"40px" 
+              height: "40px",
             }}
           >
             Next
