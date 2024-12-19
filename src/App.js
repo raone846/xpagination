@@ -12,9 +12,9 @@ function App() {
     const fetchData = async () => {
       try {
         const response = await fetch(API);
-        if (!response.ok) {
+        /*if (!response.ok) {
           throw new Error('Network response was not ok');
-        }
+        }*/
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
