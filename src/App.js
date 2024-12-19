@@ -18,7 +18,7 @@ function App() {
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
-        console.error("Failed to fetch data", error);
+        console.error("failed to fetch data", error);
         window.alert('failed to fetch data'); // Ensure the alert is triggered
       }
     };
